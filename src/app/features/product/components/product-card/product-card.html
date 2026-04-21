@@ -1,1 +1,23 @@
-<p>product-card works!</p>
+<div class="card"
+     [ngStyle]="{
+       borderColor: product.stockCount < 5 ? 'red' : 'green'
+     }">
+
+  <img [src]="product.image" />
+
+  <h3>{{ product.name }}</h3>
+
+  <p>{{ product.description }}</p>
+
+  <p>{{ product.price | currencyFormatter:'INR' }}</p>
+
+  <p>Stock: {{ product.stockCount }}</p>
+
+  <p>Added: {{ product.addedDate | timeAgo }}</p>
+
+  <app-star-rating
+    [rating]="product.rating"
+    (ratingChange)="updateRating($event)">
+  </app-star-rating>
+
+</div>

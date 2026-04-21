@@ -1,1 +1,5 @@
-<p>star-rating works!</p>
+<span *ngFor="let star of stars"
+      (click)="selectRating(star)"
+      [ngClass]="{ filled: star <= rating }">
+  ★
+</span>
